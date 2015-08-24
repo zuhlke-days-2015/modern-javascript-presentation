@@ -1,0 +1,30 @@
+<!DOCTYPE html><html><head><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/web-presentation.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/PrismComponents/v0.1.0/dist/prism-components.html" rel="import"><link href="styles.css" rel="stylesheet"></head><body><web-presentation><web-presentation-keyboardcontrols></web-presentation-keyboardcontrols><web-presentation-progress></web-presentation-progress><web-slide-title id="title-slide"><h1>Modern Javascript Frameworks</h1><p>Next generation way of creating js</p></web-slide-title><web-slide id="component-ng"><h1>Angular 1.x Component</h1><pre is="lang-markup">&lt;li movie-tile imageurl="img/image1.png"&gt;&lt;/li&gt;</pre><pre is="lang-javascript">angular
+	.module('movieApp', [])
+	.directive('movie-tile', function() {
+		return {
+			scope: {},
+			bindToController: {
+				imageurl: '@'
+			}
+			controller: function () { },
+			controllerAs: 'ctrl',
+			template: '&lt;img src="{{ctrl.imageurl}}" /&gt;'
+		};
+	});
+	
+	</pre></web-slide><web-slide id="component-ng"><h1>ES6 Component</h1><pre is="lang-markup">&lt;li is="movie-tile" imageurl="img/image1.png"&gt;&lt;/li&gt;</pre><pre is="lang-javascript">class MovieTile extends HTMLLIElement {
+	createdCallback() {
+		this.render(this.attributes);
+	}
+	
+	render(attrs) {
+		this.innerHTML = `
+			&lt;img src="${attrs.imageurl.value}" /&gt;
+		`;
+	}
+}
+	
+export default document.registerElement('movie-tile', {
+	prototype: MovieTile.prototype,
+	extends: 'li'
+});</pre></web-slide></web-presentation><script src="//localhost:9091">// livereload</script></body></html>
