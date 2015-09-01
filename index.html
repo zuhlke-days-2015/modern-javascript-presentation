@@ -1,30 +1,5 @@
-<!DOCTYPE html><html><head><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/web-presentation.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/PrismComponents/v0.1.0/dist/prism-components.html" rel="import"><link href="styles.css" rel="stylesheet"></head><body><web-presentation><web-presentation-keyboardcontrols></web-presentation-keyboardcontrols><web-presentation-progress></web-presentation-progress><web-slide-title id="title-slide"><h1>Modern Javascript Frameworks</h1><p>Next generation way of creating js</p></web-slide-title><web-slide id="component-ng"><h1>Angular 1.x Component</h1><pre is="lang-markup">&lt;li movie-tile imageurl="img/image1.png"&gt;&lt;/li&gt;</pre><pre is="lang-javascript">angular
-	.module('movieApp', [])
-	.directive('movie-tile', function() {
-		return {
-			scope: {},
-			bindToController: {
-				imageurl: '@'
-			}
-			controller: function () { },
-			controllerAs: 'ctrl',
-			template: '&lt;img src="{{ctrl.imageurl}}" /&gt;'
-		};
-	});
-	
-	</pre></web-slide><web-slide id="component-ng"><h1>ES6 Component</h1><pre is="lang-markup">&lt;li is="movie-tile" imageurl="img/image1.png"&gt;&lt;/li&gt;</pre><pre is="lang-javascript">class MovieTile extends HTMLLIElement {
-	createdCallback() {
-		this.render(this.attributes);
+<!DOCTYPE html><html><head><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/web-presentation.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/PrismComponents/v0.1.0/dist/prism-components.html" rel="import"><link href="https://cdn.rawgit.com/ChristianKohler/web-presentation/v1.0.2/dist/transitions.css" rel="stylesheet"><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"><link href="styles.css" rel="stylesheet"></head><body><web-presentation><web-presentation-keyboardcontrols></web-presentation-keyboardcontrols><web-presentation-progress></web-presentation-progress><web-slide-title id="title-slide"><h1>Modern Javascript Frameworks</h1><p>Next generation way of creating js</p></web-slide-title><web-slide><h1>intro</h1></web-slide><web-slide style="background-image:url('images/stefan.png')" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Stefan Jäger</h1><div><i class="fa fa-twitter"></i>steivan /<i class="fa fa-github"></i>steivan</div></web-slide><web-slide style="background-image:url('images/stefan.png')" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Kevin Denver</h1></web-slide><web-slide style="background-image:url('images/chris.jpg')" data-transition="moveToLeft" class="fullscreen-image about align-left"><h1>Christian Kohler</h1><div><i class="fa fa-twitter"></i>christiankohler /<i class="fa fa-github"></i>christiankohler</div></web-slide><web-slide-title><h1>No Libs</h1></web-slide-title><web-slide><h1>Customelement</h1></web-slide><web-slide><h1>fetch</h1></web-slide><web-slide><h1>ES 6 Class</h1><pre is="lang-javascript">class Car {
+	constructor(horsepower) {
+		this.hp = horsepower;
 	}
-	
-	render(attrs) {
-		this.innerHTML = `
-			&lt;img src="${attrs.imageurl.value}" /&gt;
-		`;
-	}
-}
-	
-export default document.registerElement('movie-tile', {
-	prototype: MovieTile.prototype,
-	extends: 'li'
-});</pre></web-slide></web-presentation><script src="//localhost:9091">// livereload</script></body></html>
+}</pre></web-slide><web-slide><h1>ES 6 Promises</h1></web-slide><web-slide><h1>ES6 Arrowfunc</h1></web-slide><web-slide><h1>ES 6 Modules</h1></web-slide><web-slide><h1>ES 6 Template Strings</h1></web-slide><web-slide-title><h1>The good, the bad, the ugly</h1></web-slide-title></web-presentation><script src="//localhost:9091">// livereload</script></body></html>

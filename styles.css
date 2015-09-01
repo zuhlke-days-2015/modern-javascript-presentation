@@ -1,4 +1,26 @@
-/* custom styles */
+/* general styles */
 pre {
 	font-size: 0.7em;
 }
+
+i {
+  padding: 0 0.2em;
+}
+
+.fullscreen-image {
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+	background-size: cover;	
+}
+
+.align-left::shadow div#content {
+  justify-content: initial;
+  align-items: initial;
+  text-align: initial;
+  padding: 20px;
+}
+
+/* slide styles */
+.about h1 { margin-bottom: 0; }
+.about h1+div { font-size: 0.8em; }
