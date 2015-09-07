@@ -24,3 +24,6 @@ i {
 /* slide styles */
 .about h1 { margin-bottom: 0; }
 .about h1+div { font-size: 0.8em; }
+
+.genius { background: #FF0; }
+.coding-time { background: #F0F; }
