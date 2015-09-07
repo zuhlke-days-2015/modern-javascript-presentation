@@ -1,2 +1,40 @@
 web-slide.genius
-	h1 Customelement
+    h1 Custom Elements
+    p(data-enter="1") Web Components don't exist without the features unlocked by custom elements:
+    ul(data-enter="1").align-left
+        li Define new HTML/DOM elements
+        li Create elements that extend from other elements
+        li Logically bundle together custom functionality into a single tag
+        li Extend the API of existing DOM elements
+
+web-slide(class="align-left genius")
+    h2 Create a custom element
+    pre(is="lang-javascript").
+        var XFoo = document.registerElement('x-foo');
+        document.body.appendChild(new XFoo());
+    p Name must contain a dash (-).
+    p(data-enter="1") By default, custom elements inherit from HTMLElement. Thus, the previous example is equivalent to:
+    pre(data-enter="1", is="lang-javascript").
+        var XFoo = document.registerElement('x-foo', {
+            prototype: Object.create(HTMLElement.prototype)
+        });
+
+
+web-slide(class="align-left genius")
+    h2 Use a custom element
+    span(data-enter="1")
+        p By declaring it
+        pre(is="lang-markup")
+            = '<x-foo></x-foo>'
+    span(data-enter="2")
+        p By creating DOM in JS
+        pre(is="lang-javascript").
+            var elem = document.createElement('x-foo');
+            elem.addEventListener('click', function(e) {
+                e.target.foo(); 
+            });
+    span(data-enter="3")
+        p By using new (if the constructor attribute was defined)
+        pre(is="lang-javascript").
+            var elem = new XFoo();
+            document.body.appendChild(elem);

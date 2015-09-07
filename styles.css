@@ -21,6 +21,10 @@ i {
   padding: 20px;
 }
 
+ul.align-left li {
+    text-align: left;
+}
+
 /* slide styles */
 .about h1 { margin-bottom: 0; }
 .about h1+div { font-size: 0.8em; }
