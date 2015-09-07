@@ -15,7 +15,7 @@
 			if(mappings[event.keyCode]) {
 				mappings[event.keyCode](agent);
 			} else {
-				!agent.hidden && agent.hide();
+                agent._hidden != undefined && !agent._hidden && agent.hide();
 			}
     	});
 	}
