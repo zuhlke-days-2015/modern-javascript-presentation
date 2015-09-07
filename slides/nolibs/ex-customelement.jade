@@ -1,11 +1,27 @@
-web-slide.genius
+web-slide(class="align-left genius")
     h1 Custom Elements
-    p(data-enter="1") Web Components don't exist without the features unlocked by custom elements:
+    p(data-enter="1") bundles a complex structure
+    pre(data-enter="1" is="lang-markup").
+        &lt;figure class="movie__item__inner"&gt
+            &lt;div class="movie__item__inner__img"&gt;
+                &lt;img src="img/darkknight.png" /&gt;
+            &lt;/div&gt;
+            &lt;figcaption&gt;
+                &lt;h3&gt;Dark Night&lt;/h3&gt;
+            &lt;/figcaption&gt;
+        &lt;/figure&gt;
+    p(data-enter="2") into a single tag
+    pre(data-enter="2" is="lang-markup").
+        &lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
+
+web-slide(class="align-left genius")
+    h1 Custom Elements can do more
     ul(data-enter="1").align-left
-        li Define new HTML/DOM elements
-        li Create elements that extend from other elements
-        li Logically bundle together custom functionality into a single tag
-        li Extend the API of existing DOM elements
+        li Web Components don't exist without the features unlocked by custom elements:
+        li They define new HTML/DOM elements
+        li They create elements that extend from other elements
+        li They extend the API of existing DOM elements
+        li They logically bundle together custom functionality into a single tag
 
 web-slide(class="align-left genius")
     h2 Create a custom element

@@ -3,7 +3,15 @@ in JavaScript. Do you even need frameworks like Angular at all? We'll
 show you the good, the bad and the ugly of various approaches, including 
 frameworks, micro libraries and native browser functionality.
 </p></web-slide><web-slide><h1>Example Application</h1><p>Find a movie based on your travel time</p></web-slide><web-slide-title><h1>Vanilla Single Page Application</h1></web-slide-title><web-slide><h1>Let's start with a component</h1><img src="images/darkknight.jpg" style="width: 207px; box-shadow: 1px 1px 1px 1px #AAA"></web-slide><web-slide><h1>What do we want?</h1><pre data-enter="1" is="lang-markup">&lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
-</pre></web-slide><web-slide class="genius"><h1>Custom Elements</h1><p data-enter="1">Web Components don't exist without the features unlocked by custom elements:</p><ul data-enter="1" class="align-left"><li>Define new HTML/DOM elements</li><li>Create elements that extend from other elements</li><li>Logically bundle together custom functionality into a single tag</li><li>Extend the API of existing DOM elements</li></ul></web-slide><web-slide class="align-left genius"><h2>Create a custom element</h2><pre is="lang-javascript">var XFoo = document.registerElement('x-foo');
+</pre></web-slide><web-slide class="align-left genius"><h1>Custom Elements</h1><p data-enter="1">bundles a complex structure</p><pre data-enter="1" is="lang-markup">&lt;figure class="movie__item__inner"&gt
+    &lt;div class="movie__item__inner__img"&gt;
+        &lt;img src="img/darkknight.png" /&gt;
+    &lt;/div&gt;
+    &lt;figcaption&gt;
+        &lt;h3&gt;Dark Night&lt;/h3&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;</pre><p data-enter="2">into a single tag</p><pre data-enter="2" is="lang-markup">&lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
+</pre></web-slide><web-slide class="align-left genius"><h1>Custom Elements can do more</h1><ul data-enter="1" class="align-left"><li>Web Components don't exist without the features unlocked by custom elements:</li><li>They define new HTML/DOM elements</li><li>They create elements that extend from other elements</li><li>They extend the API of existing DOM elements</li><li>They logically bundle together custom functionality into a single tag</li></ul></web-slide><web-slide class="align-left genius"><h2>Create a custom element</h2><pre is="lang-javascript">var XFoo = document.registerElement('x-foo');
 document.body.appendChild(new XFoo());</pre><p>Name must contain a dash (-).</p><p data-enter="1">By default, custom elements inherit from HTMLElement. Thus, the previous example is equivalent to:</p><pre data-enter="1" is="lang-javascript">var XFoo = document.registerElement('x-foo', {
     prototype: Object.create(HTMLElement.prototype)
 });
