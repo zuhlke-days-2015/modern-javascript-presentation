@@ -1,4 +1,4 @@
-web-slide(class="align-left genius")
+web-slide(class="align-left genius", data-transition="moveToLeft")
     h1 Custom Elements
     p(data-enter="1") bundles a complex structure
     pre(data-enter="1" is="lang-markup").
@@ -14,29 +14,27 @@ web-slide(class="align-left genius")
     pre(data-enter="2" is="lang-markup").
         &lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
 
-web-slide(class="align-left genius")
+web-slide(class="align-left genius", data-transition="moveToLeft")
     h1 Custom Elements can do more
+    p(data-enter="1") Web Components won't exist without the features unlocked by custom elements:
     ul(data-enter="1").align-left
-        li Web Components don't exist without the features unlocked by custom elements:
         li They define new HTML/DOM elements
         li They create elements that extend from other elements
         li They extend the API of existing DOM elements
         li They logically bundle together custom functionality into a single tag
 
-web-slide(class="align-left genius")
+web-slide(class="align-left genius", data-transition="moveToLeft")
     h2 Create a custom element
     pre(is="lang-javascript").
         var XFoo = document.registerElement('x-foo');
-        document.body.appendChild(new XFoo());
-    p Name must contain a dash (-).
+    p (name must contain a dash (-))
     p(data-enter="1") By default, custom elements inherit from HTMLElement. Thus, the previous example is equivalent to:
     pre(data-enter="1", is="lang-javascript").
         var XFoo = document.registerElement('x-foo', {
             prototype: Object.create(HTMLElement.prototype)
         });
 
-
-web-slide(class="align-left genius")
+web-slide(class="align-left genius", data-transition="moveToLeft")
     h2 Use a custom element
     span(data-enter="1")
         p By declaring it
@@ -46,11 +44,31 @@ web-slide(class="align-left genius")
         p By creating DOM in JS
         pre(is="lang-javascript").
             var elem = document.createElement('x-foo');
-            elem.addEventListener('click', function(e) {
-                e.target.foo(); 
-            });
+            document.body.appendChild(elem);
     span(data-enter="3")
         p By using new (if the constructor attribute was defined)
         pre(is="lang-javascript").
-            var elem = new XFoo();
-            document.body.appendChild(elem);
+            document.body.appendChild(new XFoo());
+
+web-slide(class="align-left genius", data-transition="moveToLeft")
+    h2 complete example
+    p use createdCallback as constructor
+    pre(is="lang-javascript").
+        var XFooPrototype = Object.create(HTMLElement.prototype);
+        XFooPrototype.createdCallback = function() {
+            this.innerHTML = "I'm an x-foo!";
+        };
+        var XFoo = document.registerElement('x-foo', {
+            prototype: XFooPrototype
+        });
+    p(data-enter="1") using it
+    pre(data-enter="1", is="lang-markup")
+        = '<x-foo></x-foo>'
+    p(data-enter="1") to get the text 'I'm an x-foo!'
+    
+web-slide(class="align-left genius", data-transition="moveToLeft")
+    h2 we covered
+    p(data-enter="1") document.registerElement
+    p(data-enter="2") createdCallback
+    p(data-enter="3") naming scheme
+    p(data-enter="4") now let us have some ...
