@@ -1,4 +1,4 @@
-web-slide(class="align-left genius", data-transition="moveToLeft")
+web-slide(class="align-left genius")
     h1 Custom Elements
     p(data-enter="1") bundles a complex structure
     pre(data-enter="1" is="lang-markup").
@@ -14,16 +14,16 @@ web-slide(class="align-left genius", data-transition="moveToLeft")
     pre(data-enter="2" is="lang-markup").
         &lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
 
-web-slide(class="align-left genius", data-transition="moveToLeft")
+web-slide(class="align-left genius")
     h1 Custom Elements can do more
     p(data-enter="1") Web Components won't exist without the features unlocked by custom elements:
     ul(data-enter="1").align-left
-        li They define new HTML/DOM elements
-        li They create elements that extend from other elements
-        li They extend the API of existing DOM elements
-        li They logically bundle together custom functionality into a single tag
+        li(data-enter="2") They define new HTML/DOM elements
+        li(data-enter="3") They create elements that extend from other elements
+        li(data-enter="4") They extend the API of existing DOM elements
+        li(data-enter="5") They logically bundle together custom functionality into a single tag
 
-web-slide(class="align-left genius", data-transition="moveToLeft")
+web-slide(class="align-left genius")
     h2 Create a custom element
     pre(is="lang-javascript").
         var XFoo = document.registerElement('x-foo');
@@ -34,7 +34,7 @@ web-slide(class="align-left genius", data-transition="moveToLeft")
             prototype: Object.create(HTMLElement.prototype)
         });
 
-web-slide(class="align-left genius", data-transition="moveToLeft")
+web-slide(class="align-left genius")
     h2 Use a custom element
     span(data-enter="1")
         p By declaring it
@@ -50,7 +50,7 @@ web-slide(class="align-left genius", data-transition="moveToLeft")
         pre(is="lang-javascript").
             document.body.appendChild(new XFoo());
 
-web-slide(class="align-left genius", data-transition="moveToLeft")
+web-slide(class="align-left genius")
     h2 complete example
     p use createdCallback as constructor
     pre(is="lang-javascript").
@@ -66,7 +66,7 @@ web-slide(class="align-left genius", data-transition="moveToLeft")
         = '<x-foo></x-foo>'
     p(data-enter="1") to get the text 'I'm an x-foo!'
     
-web-slide(class="align-left genius", data-transition="moveToLeft")
+web-slide(class="align-left genius")
     h2 we covered
     p(data-enter="1") document.registerElement
     p(data-enter="2") createdCallback
