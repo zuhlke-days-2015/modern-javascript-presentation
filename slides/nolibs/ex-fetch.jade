@@ -1,2 +1,47 @@
 web-slide.genius
-	h1 fetch
+    h1 Fetch API
+    
+web-slide.genius
+    h1 Disclaimer
+    img(src="../../images/fetch.png")
+    p This is an experimental technology :-)
+    
+web-slide(class="fullscreen-image" style={"background-image": "url('images/old-car.jpg')" }, data-transition="moveToLeft")
+    pre(data-enter="1" is="lang-javascript").
+        function reqListener() {  
+            var data = JSON.parse(this.responseText);  
+            console.log(data);  
+        }
+
+        function reqError(err) {  
+            console.log('Fetch Error :-S', err);  
+        }
+
+        var oReq = new XMLHttpRequest();  
+        oReq.onload = reqListener;  
+        oReq.onerror = reqError;  
+        oReq.open('get', './api/some.json', true);  
+        oReq.send();
+        
+web-slide(class="fullscreen-image" style={"background-image": "url('images/new-car.jpg')" }, data-transition="moveToLeft")
+    pre(data-enter="1" is="lang-javascript").
+        fetch('./api/some.json')
+        .then(
+            function(response) {
+                response.json().then(function(data) {
+                    console.log(data);
+                });
+            }
+        )
+        .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+        });
+        
+web-slide(class="align-left genius")
+    h1 Fetch API: Conclusion
+    p(data-enter="1").
+        #[strong Is it a standard?] <br />
+        not yet! but it's a living spec, check out #[a(href="https://fetch.spec.whatwg.org/") fetch.spec.whatwg.org] 
+    p(data-enter="2").
+        #[strong Is there a polyfill?] <br />
+        yes! You'll find it on GitHub: #[a(href="https://github.com/github/fetch/") github.com/github/fetch] 
