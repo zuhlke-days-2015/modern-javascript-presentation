@@ -74,11 +74,46 @@ document.registerElement('nice-woman2', {
 	this.innerHTML = '&lt;figure class=&quot;movie__item__inner&quot;&gt;' + 
 		'&lt;div class=&quot;movie__item__inner__img&quot;&gt;'
 }</pre><p data-enter="1">Can we do better?</p></web-slide><web-slide class="genius"><h1>ES 6 Template Strings</h1></web-slide><web-slide class="coding-time"><h1>Coding Time</h1></web-slide><web-slide><h1>Component and Object oriented syntax</h1><pre is="lang-javascript">// Todo
-</pre></web-slide><web-slide class="genius"><h1>ES 6 Class</h1><pre is="lang-javascript">class Car {
-	constructor(horsepower) {
-		this.hp = horsepower;
-	}
-}</pre></web-slide><web-slide class="coding-time"><h1>Coding Time</h1></web-slide><web-slide><h1>Movie View</h1><pre is="lang-markup" theme="dark">&lt;movie-view&gt;
+</pre></web-slide><web-slide data-transition="moveToLeft" class="genius"><h1>ES 6 Class</h1></web-slide><web-slide style="background-image:url('images/dog.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">class Dog {
+    constructor(age) {
+        this.age = age;
+    }
+    makeSound() {
+        console.log('woof!' + this.age);
+    }
+}
+
+var daisy = new Dog(2);
+daisy.makeSound();
+</pre></web-slide><web-slide class="align-left genius"><h1>Classes in ES5 style</h1><pre data-enter="1" is="lang-javascript">function Dog(age) {
+  this.age = age;
+}
+
+Dog.prototype.makeSound = function makeSound() {
+    console.log('woof!' + this.age);
+};
+
+var daisy = new Dog(2);
+daisy.makeSound();
+</pre></web-slide><web-slide style="background-image:url('images/cat.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">class Animal {}
+
+class CuteAnimal extends Animal {
+  constructor(age) {
+    super();
+    this.age = age;
+  }
+}
+
+class Cat extends CuteAnimal {
+  constructor(name, age) {
+    super(age);
+    this.name = name;
+  }
+}
+
+var cat = new Cat('iCat', 3);
+console.log(cat);
+</pre></web-slide><web-slide class="align-left genius"><h1>Class Inheritance in ES5 style</h1><p data-enter="2">Homework!</p></web-slide><web-slide class="coding-time"><h1>Coding Time</h1></web-slide><web-slide><h1>Movie View</h1><pre is="lang-markup" theme="dark">&lt;movie-view&gt;
 	&lt;ul&gt;
 		&lt;movie-tile&gt;&lt;/movie-tile&gt;
 		&lt;movie-tile&gt;&lt;/movie-tile&gt;

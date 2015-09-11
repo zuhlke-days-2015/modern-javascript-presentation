@@ -1,8 +1,55 @@
-web-slide.genius
-	h1 ES 6 Class
-	pre(is="lang-javascript").
-		class Car {
-			constructor(horsepower) {
-				this.hp = horsepower;
-			}
-		}
+web-slide(class="genius", data-transition="moveToLeft")
+    h1 ES 6 Class
+    
+web-slide(class="fullscreen-image" style={"background-image": "url('images/dog.jpg')" }, data-transition="moveToLeft")
+    pre(data-enter="1" is="lang-javascript").
+        class Dog {
+            constructor(age) {
+                this.age = age;
+            }
+            makeSound() {
+                console.log('woof!' + this.age);
+            }
+        }
+        
+        var daisy = new Dog(2);
+        daisy.makeSound();
+        
+web-slide(class="align-left genius")
+    h1 Classes in ES5 style
+    pre(data-enter="1" is="lang-javascript").
+        function Dog(age) {
+          this.age = age;
+        }
+        
+        Dog.prototype.makeSound = function makeSound() {
+            console.log('woof!' + this.age);
+        };
+        
+        var daisy = new Dog(2);
+        daisy.makeSound();
+    
+web-slide(class="fullscreen-image" style={"background-image": "url('images/cat.jpg')" }, data-transition="moveToLeft")
+    pre(data-enter="1" is="lang-javascript").
+        class Animal {}
+
+        class CuteAnimal extends Animal {
+          constructor(age) {
+            super();
+            this.age = age;
+          }
+        }
+        
+        class Cat extends CuteAnimal {
+          constructor(name, age) {
+            super(age);
+            this.name = name;
+          }
+        }
+
+        var cat = new Cat('iCat', 3);
+        console.log(cat);
+        
+web-slide(class="align-left genius")
+    h1 Class Inheritance in ES5 style
+    p(data-enter="2") Homework!
