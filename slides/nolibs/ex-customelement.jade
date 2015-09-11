@@ -1,74 +1,111 @@
-web-slide(class="align-left genius")
+web-slide(class="genius", data-transition="moveToLeft")
     h1 Custom Elements
-    p(data-enter="1") bundles a complex structure
+
+web-slide(class="fullscreen-image" style={"background-image": "url('images/nice-woman.jpg')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-markup").
-        &lt;figure class="movie__item__inner"&gt
-            &lt;div class="movie__item__inner__img"&gt;
-                &lt;img src="img/darkknight.png" /&gt;
+        &lt;nice-woman&gt;&lt;/nice-woman&gt;
+
+web-slide(class="fullscreen-image" style={"background-image": "url('images/nice-woman-complex.png')" }, data-transition="moveToLeft")
+    pre(data-enter="1" is="lang-markup").
+        &lt;div&gt;
+            &lt;div class="hair-mesh"&gt;
+                &lt;span class="..."&gt;&lt;/span&gt;
+                &lt;div class="..."&gt;
+                    ...
+                &lt;/div&gt;
             &lt;/div&gt;
-            &lt;figcaption&gt;
-                &lt;h3&gt;Dark Night&lt;/h3&gt;
-            &lt;/figcaption&gt;
-        &lt;/figure&gt;
-    p(data-enter="2") into a single tag
-    pre(data-enter="2" is="lang-markup").
-        &lt;movie-tile title="Dark Night" imageurl="img/darkknight.png"&gt;&lt;/movie-tile&gt;
+            &lt;div class="eyes"&gt;
+                &lt;span class="..."&gt;&lt;/span&gt;
+                &lt;div class=""&gt;
+                    ...
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="lips"&gt;
+                &lt;span class="..."&gt;&lt;/span&gt;
+                &lt;div class=""&gt;	
+                    &lt;div class="..."&gt;
+                        &lt;span class="..."&gt;&lt;/span&gt;
+                        &lt;div class=""&gt;
+                            ...
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
 
 web-slide(class="align-left genius")
-    h1 Custom Elements can do more
-    p(data-enter="1") Web Components won't exist without the features unlocked by custom elements:
-    ul(data-enter="1").align-left
-        li(data-enter="2") They define new HTML/DOM elements
-        li(data-enter="3") They create elements that extend from other elements
-        li(data-enter="4") They extend the API of existing DOM elements
-        li(data-enter="5") They logically bundle together custom functionality into a single tag
-
-web-slide(class="align-left genius")
-    h2 Create a custom element
+    h2 Custom Element Creation
     pre(is="lang-javascript").
-        var XFoo = document.registerElement('x-foo');
-    p (name must contain a dash (-))
-    p(data-enter="1") By default, custom elements inherit from HTMLElement. Thus, the previous example is equivalent to:
-    pre(data-enter="1", is="lang-javascript").
-        var XFoo = document.registerElement('x-foo', {
+        document.registerElement('nice-woman');
+    pre(data-enter="1" is="lang-markup").
+        &lt;nice-woman&gt;&lt;/nice-woman&gt;
+    pre(data-enter="2" is="lang-javascript").
+        document.registerElement('nice-woman', {
             prototype: Object.create(HTMLElement.prototype)
         });
 
 web-slide(class="align-left genius")
-    h2 Use a custom element
-    span(data-enter="1")
-        p By declaring it
-        pre(is="lang-markup")
-            = '<x-foo></x-foo>'
-    span(data-enter="2")
-        p By creating DOM in JS
-        pre(is="lang-javascript").
-            var elem = document.createElement('x-foo');
-            document.body.appendChild(elem);
-    span(data-enter="3")
-        p By using new (if the constructor attribute was defined)
-        pre(is="lang-javascript").
-            document.body.appendChild(new XFoo());
+    h2 Custom Element Creation
+    pre(is="lang-javascript").
+        var NiceWoman = Object.create(HTMLElement.prototype);
+        NiceWoman.createdCallback = function() {
+            this.innerHTML = 'click me!';
+            this.addEventListener('click', function(e) {
+                alert('Hello!');
+            });
+        };
+        document.registerElement('nice-woman', {
+            prototype: NiceWoman
+        });
+    pre(data-enter="1" is="lang-markup").
+        &lt;nice-woman&gt;&lt;/nice-woman&gt;
+    script.
+        var NiceWoman = Object.create(HTMLElement.prototype);
+        NiceWoman.createdCallback = function() {
+            this.innerHTML = "click me!";
+            this.addEventListener('click', function(e) {
+                alert('Hello!');
+            });
+        };
+        document.registerElement('nice-woman', {
+            prototype: NiceWoman
+        });
+    p(data-enter="1")
+        nice-woman
+
+web-slide(class="genius", data-transition="moveToLeft")
+    h1 One More Thing
+
+web-slide(class="fullscreen-image" style={"background-image": "url('images/nice-woman-outdoor.jpg')" }, data-transition="moveToLeft")
+    pre(data-enter="1" is="lang-markup").
+        &lt;nice-woman type="outdoor"&gt;&lt;/nice-woman&gt;
 
 web-slide(class="align-left genius")
-    h2 complete example
-    p use createdCallback as constructor
+    h2 Custom Element Attributes
     pre(is="lang-javascript").
-        var XFooPrototype = Object.create(HTMLElement.prototype);
-        XFooPrototype.createdCallback = function() {
-            this.innerHTML = "I'm an x-foo!";
+        var NiceWoman = Object.create(HTMLElement.prototype);
+        NiceWoman.createdCallback = function() {
+            this.innerHTML = 'click me, type=' + this.attributes['type'].value;
+            this.addEventListener('click', function(e) {
+                alert('Hello, type=' + this.attributes['type'].value);
+            });
         };
-        var XFoo = document.registerElement('x-foo', {
-            prototype: XFooPrototype
+        document.registerElement('nice-woman', {
+            prototype: NiceWoman
         });
-    p(data-enter="1") using it
-    pre(data-enter="1", is="lang-markup")
-        = '<x-foo></x-foo>'
-    p(data-enter="1") to get the text 'I'm an x-foo!'
-    
-web-slide(class="align-left genius")
-    h2 we covered
-    p(data-enter="1") document.registerElement
-    p(data-enter="2") createdCallback
-    p(data-enter="3") naming scheme
-    p(data-enter="4") now let us have some ...
+    pre(data-enter="1" is="lang-markup").
+        &lt;nice-woman type="outdoor"&gt;&lt;/nice-woman&gt;
+    script.
+        var NiceWoman2 = Object.create(HTMLElement.prototype);
+        NiceWoman2.createdCallback = function() {
+            this.innerHTML = 'click me, type=' + this.attributes['type'].value;
+            
+            this.addEventListener('click', function(e) {
+                alert('Hello, type=' + this.attributes['type'].value);
+            });
+        };
+        document.registerElement('nice-woman2', {
+            prototype: NiceWoman2
+        });
+    p(data-enter="1")
+        nice-woman2(type="outdoor")
