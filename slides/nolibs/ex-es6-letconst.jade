@@ -1,2 +1,54 @@
 web-slide.genius
-	h1 let & const
+    h1 var/let/const
+
+web-slide(class="align-left genius")
+    h1 Javascript Hoisting
+    p Simple, isn't it?
+    
+web-slide(class="fullscreen-image align-left " style={"background-image": "url('images/javascript-junkie.jpg')", "color": "white" }, data-transition="moveToLeft")
+    h1 Quiz-Time!
+    pre(data-enter="1" is="lang-javascript").
+        var  fn22  =  1;
+        function  gn22() {
+            if (!fn22) {
+                var fn22  = 2;
+            }
+            console.log(fn22);
+        }
+        gn22(); // <-- what's the console output? and why?
+        
+web-slide(class="align-left genius")
+    h1 let
+    p We can imagine that #[strong let] is a new #[strong var]  statement. What is the difference? #[strong let] is block scoped. 
+    p #[strong let] scopes the variable to the nearest block, this includes #[i for] loops, #[i if] statements, and others.
+    pre(data-enter="1" is="lang-javascript").
+        var  fn22  =  1;
+        function  gn22() {
+            if (!fn22) {
+                let fn22  = 2;
+            }
+            console.log(fn22);
+        }
+        gn22(); // will now result in 1
+        
+web-slide(class="align-left genius")
+    h1 const
+    p #[strong const] represents a constant reference to a value.
+    pre(data-enter="1" is="lang-javascript").
+        const names = [];
+        names = []; // Error!
+    pre(data-enter="2" is="lang-javascript").
+        const names = [];
+        names.push('Jordan');
+        console.log(names);
+        
+web-slide(class="fullscreen-image align-left " style={"background-image": "url('images/javascript-junkie.jpg')", "color": "white" }, data-transition="moveToLeft")
+    h1 Quiz-Time 2!
+    pre(data-enter="1" is="lang-javascript").
+        const KEY = 'white_rabbit';
+        if (true) {
+          const KEY = 'ginger_rabbit';
+        }
+        console.log(KEY);
+        
+        // what's the result? and why?
