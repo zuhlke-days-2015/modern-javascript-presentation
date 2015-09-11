@@ -1,3 +1,7 @@
+html * {
+    font-family: 'Raleway', sans-serif;
+}
+
 /* general styles */
 pre {
 	font-size: 0.7em;
