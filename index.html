@@ -145,9 +145,9 @@ oReq.send();
 .catch(function(err) {
     console.log('Fetch Error :-S', err);
 });
-</pre></web-slide><web-slide class="align-left genius"><h1>Fetch API: Conclusion</h1><p data-enter="1"><strong>Is it a standard?</strong> <br />
-not yet! but it's a living spec, check out <a href="https://fetch.spec.whatwg.org/">fetch.spec.whatwg.org</a> </p><p data-enter="2"><strong>Is there a polyfill?</strong> <br />
-yes! You'll find it on GitHub: <a href="https://github.com/github/fetch/">github.com/github/fetch</a> </p></web-slide><web-slide class="coding-time"><h1>Coding Time</h1></web-slide><web-slide><h1>Function in function in function..</h1><pre is="lang-javascript">fetch(BASEURL + params).then(function(result) { return result.json(); })</pre><p data-enter="1">Is there a better way?</p></web-slide><web-slide class="genius"><h1>Arrow Functions</h1><div>Arrows are a function shorthand using the => syntax. 
+</pre></web-slide><web-slide class="align-left genius"><h1>Fetch API: Conclusion</h1><p data-enter="1"><strong>Is it a W3C standard?</strong> <br />
+somehow! <a href="https://fetch.spec.whatwg.org/">fetch.spec.whatwg.org</a> </p><p data-enter="2"><strong>Is there a polyfill?</strong> <br />
+yes! <a href="https://github.com/github/fetch/">github.com/github/fetch</a> </p></web-slide><web-slide class="coding-time"><h1>Coding Time</h1></web-slide><web-slide><h1>Function in function in function..</h1><pre is="lang-javascript">fetch(BASEURL + params).then(function(result) { return result.json(); })</pre><p data-enter="1">Is there a better way?</p></web-slide><web-slide class="genius"><h1>Arrow Functions</h1><div>Arrows are a function shorthand using the => syntax. 
 They support both expression and statement bodies. Unlike functions, 
 arrows share the same lexical this as their surrounding code.</div><pre is="lang-javascript">// Expression bodies
 var odds = evens.map(v => v + 1);
