@@ -1,2 +1,43 @@
+// http://www.html5rocks.com/en/tutorials/async/deferred/
+// http://www.html5rocks.com/en/tutorials/es6/promises/
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+// http://www.slideshare.net/async_io/javascript-promisesq-library-17206726
 web-slide.genius
-	h1 ES 6 Promises
+	h1 Promises
+	h2 <i>A promise made is a debt unpaid.</i>
+
+web-slide(class="align-left genius")
+	h1 Promises
+	p.
+		A Promise represents a proxy for a value not necessarily known when the 
+		promise is created. It allows you to associate handlers to an asynchronous 
+		action's eventual success value or failure reason. This lets asynchronous 
+		methods return values like synchronous methods: instead of the final value, 
+		the asynchronous method returns a promise of having a value at some 
+		point in the future.
+	pre(is="lang-javascript").
+		doMyLaundry().then(clothes => {
+			clothes.forEeach(piece => console.log('I washed a ' + piece));
+		});
+		
+		// you can chain promises
+		doMyLaundry().then(putOutToDry).then(ironShirts).then(foldSocks).then(putAway)
+
+web-slide(class="align-left genius")
+	h1 Promises
+	p.
+		Although promise implementations follow a standardised behaviour, their 
+		overall APIs differ. JavaScript promises are similar in API to RSVP.js. 
+		Here's how you create a promise:
+	pre(is="lang-javascript").
+		var later = new Promise((resolve, reject) => {
+			if (/* everything worked */)
+				resolve("Stuff worked");
+			else 
+				reject(Error("Everything is failing!"));
+		});
+		
+		// Promise.prototype.then(onFulfilled, onRejected)
+		later.then(
+			s => console.log('I was resolved'),
+			s => console.log('I was rejected'));
