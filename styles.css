@@ -11,6 +11,33 @@ i {
   padding: 0 0.2em;
 }
 
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-item {
+    border: 0.1em solid #9a9180;
+    border-top-left-radius: 0.4em;
+    border-top-right-radius: 0.4em;
+    border-bottom-left-radius: 0.4em;
+    border-bottom-right-radius: 0.4em;
+    margin: 0.5em;
+    padding: 0.3em;
+    line-height: 5em;
+    vertical-align: middle;
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.aurelia-flex-pink {
+    background-color: #F498BF;
+}
+.aurelia-flex-green {
+    background-color: #7FE5A6;
+}
+
 .fullscreen-image {
 	background-repeat: no-repeat;
     background-attachment: fixed;
@@ -20,6 +47,12 @@ i {
 
 .align-left::shadow div#content {
   justify-content: initial;
+  align-items: initial;
+  text-align: initial;
+  padding: 20px;
+}
+
+.align-middle::shadow div#content {
   align-items: initial;
   text-align: initial;
   padding: 20px;
@@ -47,3 +80,5 @@ mockup-browser img {
 .about h1+div { font-size: 0.8em; }
 
 .genius { background: #FF0; }
+
+.aurelia { background: #F8DEEA; }
