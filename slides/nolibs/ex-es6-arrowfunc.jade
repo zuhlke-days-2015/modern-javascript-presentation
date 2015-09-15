@@ -24,6 +24,24 @@ web-slide(class="align-left genius")
 			return fibonacci(n - 1) + fibonacci(n - 2);
 		};
 
+		web-slide(class="align-left genius")
+			h1 Arrow Functions
+			p.
+				Again... Have you ever written this?
+			pre(is="lang-javascript").
+					...
+					addAll: function addAll(pieces) {
+						var self = this;
+						pieces.forEach(pieces, function (piece) {
+							self.add(piece);
+						});
+					}, ...
+			p.
+				Unfortunately, the inner function doesn’t inherit the outer function’s 
+				this value. Inside the inner function, this will be window or undefined. 
+				The temporary variable self serves to smuggle the outer value of this into 
+				the inner function. 
+
 web-slide(class="align-left genius")
 	h1 Arrow Functions
 	p.
@@ -38,34 +56,3 @@ web-slide(class="align-left genius")
 				this.friends.forEach(f => console.log(this.name + ' knows ' + f));
 			}
 		}
-
-web-slide(class="align-left genius")
-	h1 Arrow Functions
-	p.
-		Again... Have you ever written this?
-	pre(is="lang-javascript").
-			...
-			addAll: function addAll(pieces) {
-				var self = this;
-				_.each(pieces, function (piece) {
-					self.add(piece);
-				});
-			}, ...
-	p.
-		Unfortunately, the inner function doesn’t inherit the outer function’s 
-		this value. Inside the inner function, this will be window or undefined. 
-		The temporary variable self serves to smuggle the outer value of this into 
-		the inner function. 
-
-web-slide(class="align-left genius")
-	h1 Arrow Functions
-	ul
-		li.
-			Use non-arrow functions for methods that will be called using the object.method() syntax. 
-			Those are the functions that will receive a meaningful this value from their caller.
-		li.
-			Use arrow functions for everything else.
-	pre(is="lang-javascript").
-			addAll: function addAll(pieces) {
-				_.each(pieces, piece => this.add(piece));
-			},
