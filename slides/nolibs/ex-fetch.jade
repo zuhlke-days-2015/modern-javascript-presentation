@@ -26,13 +26,12 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/old-c
 web-slide(class="fullscreen-image" style={"background-image": "url('images/new-car.jpg')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-javascript").
         fetch('./api/some.json')
-        .then(
-            function(response) {
-                response.json().then(function(data) {
-                    console.log(data);
-                });
-            }
-        )
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+        })
         .catch(function(err) {
             console.log('Fetch Error :-S', err);
         });
