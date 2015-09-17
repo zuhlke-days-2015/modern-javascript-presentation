@@ -5,6 +5,13 @@ web-slide.genius
     h1 Disclaimer
     img(src="images/fetch.png")
     p This is an experimental technology :-)
+        
+web-slide(class="align-left genius")
+    h1 Fetch API
+    p.
+        #[strong It is a living standard!] #[a(href="https://fetch.spec.whatwg.org/") fetch.spec.whatwg.org] 
+    p.
+        #[strong There is a polyfill!] #[a(href="https://github.com/github/fetch/") github.com/github/fetch] 
     
 web-slide(class="fullscreen-image" style={"background-image": "url('images/old-car.jpg')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-javascript").
@@ -23,7 +30,7 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/old-c
         oReq.open('get', './api/some.json', true);  
         oReq.send();
         
-web-slide(class="fullscreen-image" style={"background-image": "url('images/new-car.jpg')" }, data-transition="moveToLeft")
+web-slide(class="fullscreen-image" style={"background-image": "url('images/new-car.jpg')" })
     pre(data-enter="1" is="lang-javascript").
         fetch('./api/some.json')
         .then(function(response) {
@@ -36,11 +43,25 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/new-c
             console.log('Fetch Error :-S', err);
         });
         
-web-slide(class="align-left genius")
-    h1 Fetch API: Conclusion
-    p(data-enter="1").
-        #[strong Is it a W3C standard?] <br />
-        somehow! #[a(href="https://fetch.spec.whatwg.org/") fetch.spec.whatwg.org] 
-    p(data-enter="2").
-        #[strong Is there a polyfill?] <br />
-        yes! #[a(href="https://github.com/github/fetch/") github.com/github/fetch] 
+web-slide(class="fullscreen-image" style={"background-image": "url('images/new-car.jpg')" }, data-transition="moveToLeft")
+    pre(is="lang-javascript").
+        fetch('https://zuhlke-days-2015-movie-api.azurewebsites.net/discover/movie?runtimeFrom=6528&runtimeTo=8160') // and an API Key :-)
+        .then(function(response) {
+            ...
+    pre(data-enter="1" is="lang-javascript").
+        {
+            "movies": [
+                {
+                    "imdbID":"tt4733046",
+                    "title":"The Weight of Chains 2",
+                    "year":"2014",
+                    ...
+                }, 
+                {
+                    "imdbID":"tt4514084",
+                    "title":"Far Too Far",
+                    "year":"2015",
+                    ...
+                }
+            ]
+        }

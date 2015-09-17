@@ -226,7 +226,8 @@ function doSum(a, b) { return a + b; }
 export { generateRandom as random, doSum as sum }
 </pre><pre is="lang-javascript">// app.js
 import { random, sum } from 'utility';
-import 'utility' as utils; // alternatively</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Let's use real data. But how?</h1></web-slide><web-slide class="genius"><h1>Fetch API</h1></web-slide><web-slide class="genius"><h1>Disclaimer</h1><img src="images/fetch.png"><p>This is an experimental technology :-)</p></web-slide><web-slide style="background-image:url('images/old-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">function reqListener() {  
+import 'utility' as utils; // alternatively</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Let's use real data. But how?</h1></web-slide><web-slide class="genius"><h1>Fetch API</h1></web-slide><web-slide class="genius"><h1>Disclaimer</h1><img src="images/fetch.png"><p>This is an experimental technology :-)</p></web-slide><web-slide class="align-left genius"><h1>Fetch API</h1><p><strong>It is a living standard!</strong> <a href="https://fetch.spec.whatwg.org/">fetch.spec.whatwg.org</a> </p><p><strong>There is a polyfill!</strong> <a href="https://github.com/github/fetch/">github.com/github/fetch</a> 
+</p></web-slide><web-slide style="background-image:url('images/old-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">function reqListener() {  
     var data = JSON.parse(this.responseText);  
     console.log(data);  
 }
@@ -240,7 +241,7 @@ oReq.onload = reqListener;
 oReq.onerror = reqError;  
 oReq.open('get', './api/some.json', true);  
 oReq.send();
-</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">fetch('./api/some.json')
+</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" class="fullscreen-image"><pre data-enter="1" is="lang-javascript">fetch('./api/some.json')
 .then(function(response) {
     return response.json();
 })
@@ -250,9 +251,24 @@ oReq.send();
 .catch(function(err) {
     console.log('Fetch Error :-S', err);
 });
-</pre></web-slide><web-slide class="align-left genius"><h1>Fetch API: Conclusion</h1><p data-enter="1"><strong>Is it a W3C standard?</strong> <br />
-somehow! <a href="https://fetch.spec.whatwg.org/">fetch.spec.whatwg.org</a> </p><p data-enter="2"><strong>Is there a polyfill?</strong> <br />
-yes! <a href="https://github.com/github/fetch/">github.com/github/fetch</a> </p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Function in function in function..</h1><pre is="lang-javascript">fetch(BASEURL + params).then(function(result) { return result.json(); })</pre><p data-enter="1">Is there a better way?</p></web-slide><web-slide class="genius"><h1>Arrow Functions =&gt;</h1></web-slide><web-slide class="align-left genius"><h1>Arrow Functions</h1><p>Arrows are a function shorthand using the =&gt; syntax.
+</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre is="lang-javascript">fetch('https://zuhlke-days-2015-movie-api.azurewebsites.net/discover/movie?runtimeFrom=6528&runtimeTo=8160') // and an API Key :-)
+.then(function(response) {
+    ...</pre><pre data-enter="1" is="lang-javascript">{
+    "movies": [
+        {
+            "imdbID":"tt4733046",
+            "title":"The Weight of Chains 2",
+            "year":"2014",
+            ...
+        }, 
+        {
+            "imdbID":"tt4514084",
+            "title":"Far Too Far",
+            "year":"2015",
+            ...
+        }
+    ]
+}</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Function in function in function..</h1><pre is="lang-javascript">fetch(BASEURL + params).then(function(result) { return result.json(); })</pre><p data-enter="1">Is there a better way?</p></web-slide><web-slide class="genius"><h1>Arrow Functions =&gt;</h1></web-slide><web-slide class="align-left genius"><h1>Arrow Functions</h1><p>Arrows are a function shorthand using the =&gt; syntax.
 They support both expression and statement bodies.</p><pre is="lang-javascript" style="margin-top:-10px">// Before...
 var circumference = function (radius) {
 	return 2 * Math.PI * radius;
