@@ -26,13 +26,13 @@ web-slide.aurelia.align-middle(data-transition="moveToLeft")
         div.flex-item.aurelia-flex-pink(data-enter='3') aurelia-router
         div.flex-item(data-enter='4') &lt;template&gt;
     div.flex
-        div.flex-item.aurelia-flex-green Native App
+        div.flex-item.aurelia-flex-green Vanilla SPA
     
 web-slide.aurelia(data-transition="moveToLeft")
     h1 &lt;template&gt;
-    p(data-enter='1') HTMLTemplateElement
-    img(data-enter='2', src="images/template-specification.png")
-    img(data-enter='3', src="images/template-browser.png")
+    p HTMLTemplateElement
+    img(src="images/template-specification.png")
+    img(data-enter='1', src="images/template-browser.png")
     
 web-slide.aurelia.align-middle(data-transition="moveToLeft")
     div.flex
@@ -48,3 +48,9 @@ web-slide.aurelia.align-middle(data-transition="moveToLeft")
         div.flex-item.aurelia-flex-pink(data-enter='3') movie-tile
     div.flex
         div.flex-item.aurelia-flex-green Movie
+        
+web-slide.aurelia.align-left(data-transition="moveToLeft")
+    h1 Delta Vanilla SPA - Aurelia
+    h2 &#9679; Dependency Injection with @inject
+    h2 &#9679; Two Way Databinding with @bindable
+    h2 &#9679; Aurelia Bootstrapper and Aurelia Router
