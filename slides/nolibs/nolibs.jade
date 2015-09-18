@@ -82,10 +82,12 @@ include ../coding-time.jade
 web-slide
 	h1 Router
 	pre(is="lang-javascript" theme="dark").
-		router.config([
-			{ route: "search",  component: SearchView },
-			{ route: "movies",  component: MoviesView }
-		]);
+		router.configure(config => {
+			config.map([
+				{ route: "search",  component: SearchView },
+				{ route: "movies",  component: MoviesView }
+			]);
+		});
 	pre(is="lang-javascript" theme="dark").
 		router.navigate('movies', { duration: duration });
 
