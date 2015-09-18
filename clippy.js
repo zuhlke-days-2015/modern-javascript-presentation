@@ -6,6 +6,7 @@
 		"49": agent => agent.speak("Where am I?"), //1
 		"50": agent => agent.speak("Uh nice, hello Zuehlke!"), //2
 		"51": agent => agent.speak("You could use custom elements"), //3
+		"52": agent => agent.speak("Of course there is"), //3
 	};
 	
 	clippy.load('Clippy', registerKeyDownListener);

@@ -79,7 +79,7 @@ mockup-browser img {
 .about h1 { margin-bottom: 0; }
 .about h1+div { font-size: 0.8em; }
 
-.genius { background: #FF0; }
+.genius { background: #333; color: rgba(255, 255, 255, 0.8) }
 
 .aurelia { background: #dddddd; }
 
