@@ -327,18 +327,37 @@ if (true) {
 }
 console.log(KEY);
 
-// what's the result? and why?</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Search View</h1><p>Use Google Maps Api to get the duration</p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Again! Function in function in function..</h1><pre is="lang-javascript">search(from, to, function(result) { ... })</pre><p data-enter="1">I guess there is a better way, right?</p></web-slide><!-- http://www.html5rocks.com/en/tutorials/async/deferred/--><!-- http://www.html5rocks.com/en/tutorials/es6/promises/--><!-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise--><!-- http://www.slideshare.net/async_io/javascript-promisesq-library-17206726--><web-slide class="genius"><h1>Promises</h1><h2><i>A promise made is a debt unpaid.</i></h2></web-slide><web-slide class="align-left genius"><h1>Promises</h1><p>A Promise represents a proxy for a value not necessarily known when the 
+// what's the result? and why?</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Search View</h1><p>Use Google Maps Api to get the duration</p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Again! Function in function in function..</h1><pre is="lang-javascript">search(from, to, function(result) { ... })</pre><p data-enter="1">I guess there is a better way, right?</p></web-slide><!-- http://www.html5rocks.com/en/tutorials/async/deferred/--><!-- http://www.html5rocks.com/en/tutorials/es6/promises/--><!-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise--><!-- http://www.slideshare.net/async_io/javascript-promisesq-library-17206726--><web-slide class="genius"><h1>Promises</h1><h2><i>A promise made is a debt unpaid.</i></h2></web-slide><web-slide class="align-left genius"><h1>Promises - Callback Hellss</h1><pre is="lang-javascript" style="margin-top:-15px">function readdir(source) {
+  fs.readdir(source, function(err, files) {
+    if (err) console.log('Error finding files: ' + err)
+		else {
+      files.forEach(function(filename, fileIndex) {
+        console.log(source + filename);
+        if (S(filename).endsWith('.jpeg')) {
+          gm(source + filename).size(function(err, values) {
+            if (err) console.log('Error identifying file size: ' + err)
+            else {
+              console.log(filename + ' : ' + values);
+              aspect = (values.width / values.height);
+              widths.forEach(function(width, widthIndex) {
+                height = Math.round(width / aspect);
+                console.log('resizing ' + filename + 'to ' + height + 'x' + height);
+                this.resize(width, height).write(destination + 'w' + width + '_' + filename, function(err) {
+                  if (err) console.log('Error writing file: ' + err);
+                })
+              }.bind(this));
+            }});}});}});}
+</pre></web-slide><web-slide class="align-left genius"><h1>Promises</h1><p>A Promise represents a proxy for a value not necessarily known when the 
 promise is created. It allows you to associate handlers to an asynchronous 
-action's eventual success value or failure reason. This lets asynchronous 
-methods return values like synchronous methods: instead of the final value, 
-the asynchronous method returns a promise of having a value at some 
-point in the future.
+action's eventual success value or failure reason.
 </p><pre is="lang-javascript">doMyLaundry().then(clothes => {
 	clothes.forEeach(piece => console.log('I washed a ' + piece));
 });
 
 // you can chain promises
-doMyLaundry().then(putOutToDry).then(ironShirts).then(foldSocks).then(putAway);
+doMyLaundry().then(laundry => {
+	return putOutToDry(laundry);
+}).then(ironShirts).then(foldSocks).then(putAway);
 </pre></web-slide><web-slide class="align-left genius"><h1>Promises</h1><p>Although promise implementations follow a standardised behaviour, their 
 overall APIs differ. JavaScript promises are similar in API to RSVP.js. 
 Here's how you create a promise:</p><pre is="lang-javascript">var later = new Promise((resolve, reject) => {
