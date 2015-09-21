@@ -47,28 +47,28 @@ web-slide(class="align-left genius")
 web-slide(class="align-left genius")
     h2 Custom Element Creation
     pre(is="lang-javascript").
-        var NiceWoman = Object.create(HTMLElement.prototype);
-        NiceWoman.createdCallback = function() {
+        var BeautifulWoman = Object.create(HTMLElement.prototype);
+        BeautifulWoman.createdCallback = function() {
             this.innerHTML = 'click me!';
             this.addEventListener('click', function(e) {
                 alert('Hello!');
             });
         };
         document.registerElement('beautiful-woman', {
-            prototype: NiceWoman
+            prototype: BeautifulWoman
         });
     pre(data-enter="1" is="lang-markup").
         &lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
     script.
-        var NiceWoman = Object.create(HTMLElement.prototype);
-        NiceWoman.createdCallback = function() {
+        var BeautifulWoman = Object.create(HTMLElement.prototype);
+        BeautifulWoman.createdCallback = function() {
             this.innerHTML = "click me!";
             this.addEventListener('click', function(e) {
                 alert('Hello!');
             });
         };
         document.registerElement('beautiful-woman', {
-            prototype: NiceWoman
+            prototype: BeautifulWoman
         });
     p(data-enter="1")
         beautiful-woman
@@ -83,21 +83,21 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/beaut
 web-slide(class="align-left genius")
     h2 Custom Element Attributes
     pre(is="lang-javascript").
-        var NiceWoman = Object.create(HTMLElement.prototype);
-        NiceWoman.createdCallback = function() {
+        var BeautifulWoman = Object.create(HTMLElement.prototype);
+        BeautifulWoman.createdCallback = function() {
             this.innerHTML = 'click me, type=' + this.attributes['type'].value;
             this.addEventListener('click', function(e) {
                 alert('Hello, type=' + this.attributes['type'].value);
             });
         };
         document.registerElement('beautiful-woman', {
-            prototype: NiceWoman
+            prototype: BeautifulWoman
         });
     pre(data-enter="1" is="lang-markup").
         &lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;
     script.
-        var NiceWoman2 = Object.create(HTMLElement.prototype);
-        NiceWoman2.createdCallback = function() {
+        var BeautifulWoman2 = Object.create(HTMLElement.prototype);
+        BeautifulWoman2.createdCallback = function() {
             this.innerHTML = 'click me, type=' + this.attributes['type'].value;
             
             this.addEventListener('click', function(e) {
@@ -105,7 +105,7 @@ web-slide(class="align-left genius")
             });
         };
         document.registerElement('beautiful-woman2', {
-            prototype: NiceWoman2
+            prototype: BeautifulWoman2
         });
     p(data-enter="1")
         beautiful-woman2(type="outdoor")
