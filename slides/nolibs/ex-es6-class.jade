@@ -22,10 +22,10 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/dog.j
         
         SadDog.prototype = Object.create(Animal.prototype);
         SadDog.prototype.constructor = SadDog;
-
-        var daisy = new SadDog('Daisy', 2);
-        daisy.sayName();  // result like 'my name is: Daisy'?
-        daisy.myAge();    // result like 'woof! 2'?
+    pre(data-enter="2" is="lang-javascript").
+        var tristan = new SadDog('Tristan', 2);
+        tristan.sayName();  // 'my name is: Tristan' ?
+        tristan.myAge();    // 'woof! 2' ?
     
 web-slide(class="fullscreen-image" style={"background-image": "url('images/dog.jpg')" })
     pre(is="lang-javascript").
@@ -48,10 +48,10 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/dog.j
         
         SadDog.prototype = Object.create(Animal.prototype);
         SadDog.prototype.constructor = SadDog;
-
-        var daisy = new SadDog('Daisy', 2);
-        daisy.sayName();  // my name is: Daisy
-        daisy.myAge();    // Uncaught TypeError: daisy.myAge is not a function(…)
+    pre(is="lang-javascript").
+        var tristan = new SadDog('Tristan', 2);
+        tristan.sayName();  // 'my name is: Tristan'
+        tristan.myAge();    // Uncaught TypeError: tristan.myAge is not a function(…)
         
 web-slide(class="fullscreen-image" style={"background-image": "url('images/dog.jpg')" }, data-transition="moveToLeft")
     pre(is="lang-javascript").
@@ -74,10 +74,10 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/dog.j
         SadDog.prototype.myAge = function() {
             console.log('woof! ' + this.age);
         };
-
-        var daisy = new SadDog('Daisy', 2);
-        daisy.sayName();  // my name is: Daisy
-        daisy.myAge();    // woof! 2
+    pre(data-enter="1" is="lang-javascript").
+        var tristan = new SadDog('Tristan', 2);
+        tristan.sayName();  // 'my name is: Tristan'
+        tristan.myAge();    // 'woof! 2'
         
 web-slide(class="fullscreen-image" style={"background-image": "url('images/happy-dog.jpg')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-javascript").
@@ -99,36 +99,34 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/happy
                 console.log('woof! ' + this.age);
             }
         }
-
-        var daisy = new HappyDog('Daisy', 2);
+    pre(data-enter="2" is="lang-javascript").
+        var daisy = new HappyDog('Daisy', 5);
         daisy.sayName();  // my name is: Daisy
-        daisy.myAge();    // woof! 2
+        daisy.myAge();    // woof! 5
     
 web-slide(class="fullscreen-image" style={"background-image": "url('images/cat.jpg')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-javascript").
         class Animal {}
 
-        class CuteAnimal extends Animal {
-          cute = true; // will not compile, ES7!
-          
-          constructor(age) {
-            super();
-            this.age = age;
-          }
-        }
-        
-        class Cat extends CuteAnimal {
-          constructor(name, age) {
-            super(age);
-            this.name = name;
-          }
-          
+        class Cat extends Animal {          
           static saySomething() {
               console.log('miauw');
           }
         }
-
-        var cat = new Cat('iCat', 3);
-        console.log(cat.name + ' ' + cat.age); // iCat 3 
-        
+    pre(data-enter="1" is="lang-javascript").
         Cat.saySomething(); // miauw
+    
+web-slide(class="fullscreen-image" style={"background-image": "url('images/cat.jpg')" }, data-transition="moveToLeft")
+    pre(is="lang-javascript").
+        class Cat {   
+          constructor() {
+              this.cute = true;
+          }
+        }
+    pre(data-enter="1" is="lang-javascript").
+        // ES7 class properties
+        class Cat {  
+          cute = true; 
+        }       
+        
+          

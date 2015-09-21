@@ -1,11 +1,11 @@
 web-slide(class="genius", data-transition="moveToLeft")
     h1 Custom Elements
 
-web-slide(class="fullscreen-image" style={"background-image": "url('images/nice-woman.jpg')" }, data-transition="moveToLeft")
+web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman.jpg')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-markup").
-        &lt;nice-woman&gt;&lt;/nice-woman&gt;
+        &lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
 
-web-slide(class="fullscreen-image" style={"background-image": "url('images/nice-woman-complex.png')" }, data-transition="moveToLeft")
+web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman-complex.png')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-markup").
         &lt;div&gt;
             &lt;div class="hair-mesh"&gt;
@@ -36,11 +36,11 @@ web-slide(class="fullscreen-image" style={"background-image": "url('images/nice-
 web-slide(class="align-left genius")
     h2 Custom Element Creation
     pre(is="lang-javascript").
-        document.registerElement('nice-woman');
+        document.registerElement('beautiful-woman');
     pre(data-enter="1" is="lang-markup").
-        &lt;nice-woman&gt;&lt;/nice-woman&gt;
+        &lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
     pre(data-enter="2" is="lang-javascript").
-        document.registerElement('nice-woman', {
+        document.registerElement('beautiful-woman', {
             prototype: Object.create(HTMLElement.prototype)
         });
 
@@ -54,11 +54,11 @@ web-slide(class="align-left genius")
                 alert('Hello!');
             });
         };
-        document.registerElement('nice-woman', {
+        document.registerElement('beautiful-woman', {
             prototype: NiceWoman
         });
     pre(data-enter="1" is="lang-markup").
-        &lt;nice-woman&gt;&lt;/nice-woman&gt;
+        &lt;beautiful-woman&gt;&lt;/beautiful-woman&gt;
     script.
         var NiceWoman = Object.create(HTMLElement.prototype);
         NiceWoman.createdCallback = function() {
@@ -67,18 +67,18 @@ web-slide(class="align-left genius")
                 alert('Hello!');
             });
         };
-        document.registerElement('nice-woman', {
+        document.registerElement('beautiful-woman', {
             prototype: NiceWoman
         });
     p(data-enter="1")
-        nice-woman
+        beautiful-woman
 
 web-slide(class="genius", data-transition="moveToLeft")
     h1 One More Thing
 
-web-slide(class="fullscreen-image" style={"background-image": "url('images/nice-woman-outdoor.jpg')" }, data-transition="moveToLeft")
+web-slide(class="fullscreen-image" style={"background-image": "url('images/beautiful-woman-outdoor.jpg')" }, data-transition="moveToLeft")
     pre(data-enter="1" is="lang-markup").
-        &lt;nice-woman type="outdoor"&gt;&lt;/nice-woman&gt;
+        &lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;
 
 web-slide(class="align-left genius")
     h2 Custom Element Attributes
@@ -90,11 +90,11 @@ web-slide(class="align-left genius")
                 alert('Hello, type=' + this.attributes['type'].value);
             });
         };
-        document.registerElement('nice-woman', {
+        document.registerElement('beautiful-woman', {
             prototype: NiceWoman
         });
     pre(data-enter="1" is="lang-markup").
-        &lt;nice-woman type="outdoor"&gt;&lt;/nice-woman&gt;
+        &lt;beautiful-woman type="outdoor"&gt;&lt;/beautiful-woman&gt;
     script.
         var NiceWoman2 = Object.create(HTMLElement.prototype);
         NiceWoman2.createdCallback = function() {
@@ -104,8 +104,8 @@ web-slide(class="align-left genius")
                 alert('Hello, type=' + this.attributes['type'].value);
             });
         };
-        document.registerElement('nice-woman2', {
+        document.registerElement('beautiful-woman2', {
             prototype: NiceWoman2
         });
     p(data-enter="1")
-        nice-woman2(type="outdoor")
+        beautiful-woman2(type="outdoor")
