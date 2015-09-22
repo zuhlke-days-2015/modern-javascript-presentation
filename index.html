@@ -234,7 +234,7 @@ oReq.send();
 .catch(function(err) {
     console.log('Fetch Error :-S', err);
 });
-</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre is="lang-javascript">fetch('https://zuhlke-days-2015-movie-api.azurewebsites.net/discover/movie?runtimeFrom=6528&runtimeTo=8160') // and an API Key :-)
+</pre></web-slide><web-slide style="background-image:url('images/new-car.jpg')" data-transition="moveToLeft" class="fullscreen-image"><pre is="lang-javascript">fetch('https://.../discover/movie?runtimeFrom=6528&runtimeTo=8160') // and an API Key :-)
 .then(function(response) {
     ...</pre><pre data-enter="1" is="lang-javascript">{
     "movies": [
@@ -286,7 +286,7 @@ lexical this as their surrounding code.</p><pre is="lang-javascript">var spongeB
 		// this.name refers to spongeBob because of the arrow function
 		this.friends.forEach(f => console.log(this.name + ' knows ' + f));
 	}
-}</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide class="genius"><h1>var/let/const</h1></web-slide><web-slide class="align-left genius"><h1>Javascript Hoisting</h1><p>Simple, isn't it?</p></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" class="fullscreen-image align-left "><h1>Quiz-Time!</h1><pre data-enter="1" is="lang-javascript">var  fn22 = 1;
+}</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide class="genius"><h1>var/let/const</h1></web-slide><web-slide class="align-left genius"><h1>Javascript Hoisting</h1><p>Simple, isn't it?</p></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" class="fullscreen-image align-left "><h1>Quiz-Time!</h1><pre data-enter="1" is="lang-javascript">var fn22 = 1;
 function gn22() {
     if (!fn22) {
         var fn22 = 2;
@@ -294,31 +294,31 @@ function gn22() {
     console.log(fn22);
 }
 gn22(); // <-- what's the console output? and why?
-</pre></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" data-transition="moveToLeft" class="fullscreen-image align-left "><h1>Quiz Solution</h1><pre is="lang-javascript">var  fn22 = 1;
+</pre></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" data-transition="moveToLeft" class="fullscreen-image align-left "><h1>Quiz Solution</h1><pre is="lang-javascript">var fn22 = 1;
 function gn22() {
-    var fn22;
-    if (!fn22) { // autocast -> if variable is empty/null, it returns false
+    var fn22;     // will override the value to undefined
+    if (!fn22) {  // same as "isEmpty(fn22)"
         fn22 = 2;
     }
     console.log(fn22);
 }
-gn22(); // <-- what's the console output? and why?
-</pre></web-slide><web-slide class="align-left genius"><h1>let</h1><p>We can imagine that <strong>let</strong> is a new <strong>var</strong>  statement. What is the difference?</p><p>&#8680; <strong>let</strong> is block scoped. </p><p><strong>let</strong> scopes the variable to the nearest block, this includes <i>for</i> loops, <i>if</i> statements, and others.</p><pre is="lang-javascript">var  fn22  =  1;
+gn22(); // will result in 2
+</pre></web-slide><web-slide class="align-left genius"><h1>let</h1><p>&#8680; <strong>let</strong> is block scoped. </p><p><strong>let</strong> scopes the variable to the nearest block, this includes <i>for</i> loops, <i>if</i> statements, and others.</p><pre is="lang-javascript">var fn22  =  1;
 function  gn22() {
-    if (!fn22) {
-        let fn22  = 2;
+    if (!fn22) {        // same as "isEmpty(fn22)"
+        let fn22  = 2;  // would create a new variable
     }
     console.log(fn22);
 }
-gn22(); // will now result in 1
-</pre></web-slide><web-slide class="align-left genius"><h1>const</h1><p><strong>const</strong> represents a constant reference to a value.</p><pre data-enter="1" is="lang-javascript">const baseUrl = 'http://...';
+gn22(); // will result in 1
+</pre></web-slide><web-slide class="genius"><h1><strong>let</strong> is the new <strong>var</strong></h1></web-slide><web-slide class="align-left genius"><h1>const</h1><p><strong>const</strong> represents a constant reference to a value.</p><pre data-enter="1" is="lang-javascript">const baseUrl = 'http://...';
 baseUrl = 'http://...new url...'; 
 // Uncaught TypeError: Assignment to constant variable.</pre><pre data-enter="2" is="lang-javascript">const baseUrl = 'http://...';
 const baseUrl = 'http://...new url...'; 
 // Uncaught TypeError: Identifier 'baseUrl' has already been declared(…)</pre><pre data-enter="3" is="lang-javascript">const baseUrl = 'http://...';
 let baseUrl = 'http://...new url...'; 
 // Uncaught SyntaxError: Identifier 'baseUrl' has already been declared
-</pre></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" data-transition="moveToLeft" class="fullscreen-image align-left "><h1>Quiz-Time 2!</h1><pre data-enter="1" is="lang-javascript">const howard = 'Howard';
+</pre></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" class="fullscreen-image align-left "><h1>Quiz-Time 2!</h1><pre data-enter="1" is="lang-javascript">const howard = 'Howard';
 const names = ['Leonard'];
 names.push('Sheldon');
 names.push(howard);
@@ -327,7 +327,17 @@ if (true) {
 }
 console.log(names);
 
-// what's the result? and why?</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Search View</h1><p>Use Google Maps Api to get the duration</p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Again! Function in function in function..</h1><pre is="lang-javascript">search(from, to, function(result) { ... })</pre><p data-enter="1">I guess there is a better way, right?</p></web-slide><!-- http://www.html5rocks.com/en/tutorials/async/deferred/--><!-- http://www.html5rocks.com/en/tutorials/es6/promises/--><!-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise--><!-- http://www.slideshare.net/async_io/javascript-promisesq-library-17206726--><web-slide class="genius"><h1>Promises</h1><h2><i>A promise made is a debt unpaid.</i></h2></web-slide><web-slide class="align-left genius"><h1>Promises - Callback Hellss</h1><pre is="lang-javascript" style="margin-top:-15px">function readdir(source) {
+// what's the result? and why?        
+</pre></web-slide><web-slide style="background-image:url('images/javascript-junkie.jpg');color:white" data-transition="moveToLeft" class="fullscreen-image align-left "><h1>Quiz-Time 2 Solution!</h1><pre is="lang-javascript">const howard = 'Howard';
+const names = ['Leonard'];
+names.push('Sheldon');
+names.push(howard);
+if (true) {
+    names.pop();
+}
+console.log(names);
+
+// ['Leonard', 'Sheldon']</pre></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Search View</h1><p>Use Google Maps Api to get the duration</p></web-slide><web-slide style="background-image:url('images/codingtime.gif');color:#FFF" class="fullscreen-image"><h1>CODING TIME</h1></web-slide><web-slide><h1>Again! Function in function in function..</h1><pre is="lang-javascript">search(from, to, function(result) { ... })</pre><p data-enter="1">I guess there is a better way, right?</p></web-slide><!-- http://www.html5rocks.com/en/tutorials/async/deferred/--><!-- http://www.html5rocks.com/en/tutorials/es6/promises/--><!-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise--><!-- http://www.slideshare.net/async_io/javascript-promisesq-library-17206726--><web-slide class="genius"><h1>Promises</h1><h2><i>A promise made is a debt unpaid.</i></h2></web-slide><web-slide class="align-left genius"><h1>Promises - Callback Hellss</h1><pre is="lang-javascript" style="margin-top:-15px">function readdir(source) {
   fs.readdir(source, function(err, files) {
     if (err) console.log('Error finding files: ' + err)
 		else {

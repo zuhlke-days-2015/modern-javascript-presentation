@@ -8,7 +8,7 @@ web-slide(class="align-left genius")
 web-slide(class="fullscreen-image align-left " style={"background-image": "url('images/javascript-junkie.jpg')", "color": "white" })
     h1 Quiz-Time!
     pre(data-enter="1" is="lang-javascript").
-        var  fn22 = 1;
+        var fn22 = 1;
         function gn22() {
             if (!fn22) {
                 var fn22 = 2;
@@ -20,30 +20,32 @@ web-slide(class="fullscreen-image align-left " style={"background-image": "url('
 web-slide(class="fullscreen-image align-left " style={"background-image": "url('images/javascript-junkie.jpg')", "color": "white" }, data-transition="moveToLeft")
     h1 Quiz Solution
     pre(is="lang-javascript").
-        var  fn22 = 1;
+        var fn22 = 1;
         function gn22() {
-            var fn22;
-            if (!fn22) { // autocast -> if variable is empty/null, it returns false
+            var fn22;     // will override the value to undefined
+            if (!fn22) {  // same as "isEmpty(fn22)"
                 fn22 = 2;
             }
             console.log(fn22);
         }
-        gn22(); // <-- what's the console output? and why?
+        gn22(); // will result in 2
         
 web-slide(class="align-left genius")
     h1 let
-    p We can imagine that #[strong let] is a new #[strong var]  statement. What is the difference?
     p &#8680; #[strong let] is block scoped. 
     p #[strong let] scopes the variable to the nearest block, this includes #[i for] loops, #[i if] statements, and others.
     pre(is="lang-javascript").
-        var  fn22  =  1;
+        var fn22  =  1;
         function  gn22() {
-            if (!fn22) {
-                let fn22  = 2;
+            if (!fn22) {        // same as "isEmpty(fn22)"
+                let fn22  = 2;  // would create a new variable
             }
             console.log(fn22);
         }
-        gn22(); // will now result in 1
+        gn22(); // will result in 1
+
+web-slide(class="genius")
+    h1 #[strong let] is the new #[strong var]
         
 web-slide(class="align-left genius")
     h1 const
@@ -61,7 +63,7 @@ web-slide(class="align-left genius")
         let baseUrl = 'http://...new url...'; 
         // Uncaught SyntaxError: Identifier 'baseUrl' has already been declared
         
-web-slide(class="fullscreen-image align-left " style={"background-image": "url('images/javascript-junkie.jpg')", "color": "white" }, data-transition="moveToLeft")
+web-slide(class="fullscreen-image align-left " style={"background-image": "url('images/javascript-junkie.jpg')", "color": "white" })
     h1 Quiz-Time 2!
     pre(data-enter="1" is="lang-javascript").
         const howard = 'Howard';
@@ -73,4 +75,18 @@ web-slide(class="fullscreen-image align-left " style={"background-image": "url('
         }
         console.log(names);
         
-        // what's the result? and why?
+        // what's the result? and why?        
+        
+web-slide(class="fullscreen-image align-left " style={"background-image": "url('images/javascript-junkie.jpg')", "color": "white" }, data-transition="moveToLeft")
+    h1 Quiz-Time 2 Solution!
+    pre(is="lang-javascript").
+        const howard = 'Howard';
+        const names = ['Leonard'];
+        names.push('Sheldon');
+        names.push(howard);
+        if (true) {
+            names.pop();
+        }
+        console.log(names);
+        
+        // ['Leonard', 'Sheldon']
