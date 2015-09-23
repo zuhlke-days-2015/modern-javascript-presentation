@@ -35,10 +35,10 @@ web-slide(class="align-left genius")
     p &#8680; #[strong let] is block scoped. 
     p #[strong let] scopes the variable to the nearest block, this includes #[i for] loops, #[i if] statements, and others.
     pre(is="lang-javascript").
-        var fn22  =  1;
-        function  gn22() {
+        var fn22 = 1;
+        function gn22() {
             if (!fn22) {        // same as "isEmpty(fn22)"
-                let fn22  = 2;  // would create a new variable
+                let fn22 = 2;   // would create a new variable
             }
             console.log(fn22);
         }
