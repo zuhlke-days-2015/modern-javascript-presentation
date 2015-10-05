@@ -38,10 +38,17 @@ i {
     background-color: #7FE5A6;
 }
 
+@media print { 
+  .fullscreen-image { 
+    background-attachment: initial !important;
+    background-size: 500px 500px;
+  }
+}
+
 .fullscreen-image {
 	background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center; 
+  background-attachment: fixed;
+  background-position: center; 
 	background-size: cover;	
 }
 
